@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import { Telegraf } from 'telegraf';
-import { TELEGRAM_TOKEN, APP_URL, PORT } from '../constants'; // импортируем переменные
+import { TELEGRAM_TOKEN, APP_URL, PORT } from './constants';  // Ваши переменные (не забудьте создать constants.ts)
 
 const app: Application = express();
 
@@ -37,7 +37,4 @@ bot.command('start', (ctx) => {
   });
 });
 
-// Запуск бота
-bot.launch();
-
-export default app;
+//

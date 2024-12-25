@@ -1,20 +1,3 @@
-# Игнорируем папку с зависимостями
-node_modules/
-
-# Игнорируем папку с скомпилированными файлами
-dist/
-
-# Игнорируем файл окружения
+node_modules
+dist
 .env
-
-# Игнорируем временные или IDE файлы
-.vscode/
-.idea/
-
-# Логи
-*.log
-
-# Игнорируем сгенерированные lock файлы (например, yarn.lock или package-lock.json)
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*

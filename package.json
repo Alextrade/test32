@@ -1,12 +1,12 @@
 {
   "name": "bot",
   "version": "1.0.0",
-  "main": "dist/index.js",  // Точка входа в скомпилированный файл
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",  // Запуск скомпилированного JS файла
-    "build": "tsc",  // Скомпилировать TypeScript в JavaScript
-    "dev": "ts-node src/index.ts",  // Для разработки (не для продакшн)
-    "lint": "eslint . --ext .ts"  // Проверка кода с помощью ESLint (если нужно)
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint . --ext .ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

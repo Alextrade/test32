@@ -2,11 +2,10 @@
   "name": "bot",
   "version": "1.0.0",
   "main": "src/index.ts",
-{
   "scripts": {
-    "start": "node dist/index.js",  // Запускает скомпилированный JavaScript
-    "build": "tsc",                  // Компилирует TypeScript в JavaScript
-    "dev": "ts-node src/index.ts"    // Запускает TypeScript напрямую для разработки (не для рендера)
+    "start": "node dist/index.js",  // Запускает скомпилированный JavaScript (для Render)
+    "build": "tsc",                 // Компилирует TypeScript в JavaScript
+    "dev": "ts-node src/index.ts"   // Запускает TypeScript напрямую для разработки
   },
   "dependencies": {
     "dotenv": "^16.4.5",

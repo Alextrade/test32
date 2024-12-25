@@ -1,20 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ES2016" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "commonjs" /* Specify what module code is generated. */,
-    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
-    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
-    "allowSyntheticDefaultImports": true,
-    "strict": true /* Enable all strict type-checking options. */,
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "moduleResolution": "node",
-    "sourceMap": true,
-
-    "outDir": "dist" /* Redirect output structure to the directory. */,
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
+    "target": "ES6",  // Цель компиляции
+    "module": "CommonJS",  // Используем CommonJS модули
+    "outDir": "./dist",  // Выводим скомпилированный код в папку dist
+    "rootDir": "./src",  // Исходный код находится в папке src
+    "esModuleInterop": true,  // Включает поддержку импорта модулей с экспортом по умолчанию
+    "skipLibCheck": true,  // Пропускаем проверку библиотек для ускорения компиляции
+    "forceConsistentCasingInFileNames": true,  // Следим за регистром в названиях файлов
+    "strict": true,  // Включаем строгую проверку типов
+    "resolveJsonModule": true,  // Разрешаем импорт JSON файлов
+    "moduleResolution": "node"  // Используем Node.js логику для разрешения модулей
   },
-  "include": ["./**/*"]
+  "include": ["src/**/*"],  // Включаем все файлы в папке src
+  "exclude": ["node_modules", "dist"]  // Исключаем папки node_modules и dist
 }

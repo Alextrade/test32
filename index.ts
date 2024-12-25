@@ -1,21 +1,24 @@
 import express, { Application } from 'express';
-import { Telegraf } from 'telegraf'; // Исправил неправильный импорт
-import { APP_URL, PORT, TELEGRAM_TOKEN } from './constants'; // Исправил путь для констант
+import { Telegraf } from 'telegraf';
+import { TELEGRAM_TOKEN, APP_URL, PORT } from '../constants'; // импортируем переменные
 
-// Используем процесс для динамического порта или по умолчанию 3000
-const port = process.env.PORT || 3000;
 const app: Application = express();
 
-// Настройка статических файлов (если у тебя есть папка 'static' с медиа)
-app.use(express.static('static'));
+// Настройка статических файлов (если они есть)
+app.use(express.static('public'));
 app.use(express.json());
 
-// Главный маршрут
+// Главная страница
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('Hello, World!');
 });
 
-// Создание Telegram-бота с использованием токена (здесь заменим на переменную из твоих констант)
+// Запуск сервера
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
+});
+
+// Создание Telegram-бота с использованием токена
 const bot = new Telegraf(TELEGRAM_TOKEN);
 
 // Команда "start" для бота
@@ -23,22 +26,18 @@ bot.command('start', (ctx) => {
   return ctx.reply('Play RumVall', {
     reply_markup: {
       inline_keyboard: [
-        [{
-          text: 'Play Game',
-          web_app: { url: `${APP_URL}` }
-        }]
-      ]
-    }
+        [
+          {
+            text: 'Play Game',
+            web_app: { url: `${APP_URL}` },
+          },
+        ],
+      ],
+    },
   });
 });
 
 // Запуск бота
 bot.launch();
 
-// Запуск сервера
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
-
-// Экспортируем приложение для использования на сервере
 export default app;
